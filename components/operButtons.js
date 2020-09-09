@@ -19,8 +19,10 @@ const styles = StyleSheet.create({
     },
     opButtons: {
         flexDirection: "column",
-        height: "75%",
-        flexWrap: "wrap",
+        height: "90%",
+    },
+    opBtnGroup: {
+        flexDirection: "row"
     }
 });
 
@@ -28,30 +30,41 @@ const OperandButtons: () => React$Node = (props) => {
     const { operButton, clearCalc, equalBtn } = props;
     return (
         <View style={styles.opButtons}>
-            <TouchableOpacity style={styles.button} onPress={() => operButton("+")}>
-                <Text style={styles.buttonText}>+</Text>
-            </TouchableOpacity>
-            <TouchableOpacity style={styles.button} onPress={() => operButton("-")}>
-                <Text style={styles.buttonText}>-</Text>
-            </TouchableOpacity>
-            <TouchableOpacity style={styles.button} onPress={() => operButton("%")}>
-                <Text style={styles.buttonText}>%</Text>
-            </TouchableOpacity>
-            <TouchableOpacity style={styles.button} onPress={clearCalc}>
-                <Text style={styles.buttonText}>C</Text>
-            </TouchableOpacity>
-            <TouchableOpacity style={styles.button} onPress={() => operButton("x")}>
-                <Text style={styles.buttonText}>x</Text>
-            </TouchableOpacity>
-            <TouchableOpacity style={styles.button} onPress={() => operButton("/")}>
-                <Text style={styles.buttonText}>/</Text>
-            </TouchableOpacity>
-            <TouchableOpacity style={styles.button} onPress={() => operButton("^")}>
-                <Text style={styles.buttonText}>^</Text>
-            </TouchableOpacity>
-            <TouchableOpacity style={styles.button} onPress={equalBtn}>
-                <Text style={styles.buttonText}>=</Text>
-            </TouchableOpacity>
+
+            <View style={styles.opBtnGroup}>
+                <TouchableOpacity style={styles.button} onPress={() => operButton("+")}>
+                    <Text style={styles.buttonText}>+</Text>
+                </TouchableOpacity>
+                <TouchableOpacity style={styles.button} onPress={() => operButton("-")}>
+                    <Text style={styles.buttonText}>-</Text>
+                </TouchableOpacity>
+            </View>
+
+            <View style={styles.opBtnGroup}>
+                <TouchableOpacity style={styles.button} onPress={() => operButton("x")}>
+                    <Text style={styles.buttonText}>x</Text>
+                </TouchableOpacity>
+                <TouchableOpacity style={styles.button} onPress={() => operButton("/")}>
+                    <Text style={styles.buttonText}>/</Text>
+                </TouchableOpacity>
+            </View>
+
+            <View style={styles.opBtnGroup}>
+                <TouchableOpacity style={styles.button} onPress={() => operButton("%")}>
+                    <Text style={styles.buttonText}>%</Text>
+                </TouchableOpacity>
+                <TouchableOpacity style={styles.button} onPress={() => operButton("^")}>
+                    <Text style={styles.buttonText}>^</Text>
+                </TouchableOpacity>
+            </View>
+            <View style={styles.opBtnGroup}> 
+                <TouchableOpacity style={styles.button} onPress={clearCalc}>
+                    <Text style={styles.buttonText}>C</Text>
+                </TouchableOpacity>
+                <TouchableOpacity style={styles.button} onPress={equalBtn}>
+                    <Text style={styles.buttonText}>=</Text>
+                </TouchableOpacity>
+            </View>
         </View>
     );
 };

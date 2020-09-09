@@ -50,6 +50,11 @@ const styles = StyleSheet.create({
       historyItem: {
         fontSize: 40,
         textAlign: "center"
+      },
+      seperator: {
+          height: 1,
+          width: "100%",
+          backgroundColor: "black",
       }
 });
 
@@ -64,14 +69,23 @@ const HistoryScreen: () => React$Node = ({ route, navigation }) => {
             </View>
         );
     }
+
+    const ItemSeperator: () => React$Node = () => {
+        return(
+            <View style={styles.seperator}/>
+        );
+    }
+
     return (
         <View style={styles.main}>
             <ImageBackground style={styles.backgroundImg} source={require("../assets/images/background.jpg")}>
                 <SafeAreaView style={styles.historyBox}>
                     <FlatList
+                        style={styles.historyList}
                         data={route.params.history}
                         renderItem={Item}
                         keyExtractor={(x, i) => i.toString()}
+                        ItemSeparatorComponent={ItemSeperator}
                     />
                 </SafeAreaView>
                 <TouchableOpacity style={styles.button} onPress={navHome}>

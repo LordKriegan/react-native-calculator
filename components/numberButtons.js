@@ -3,10 +3,10 @@ import { View, TouchableOpacity, Text, StyleSheet } from 'react-native';
 
 const styles = StyleSheet.create({
     numButtons: {
+        flexDirection: "column",
         justifyContent: "center",
-        flexDirection: "row",
-        flexWrap: "wrap",
-        width: "60%",
+        alignItems: "center",
+        width: "60%"
     },
     numButton: {
         justifyContent: "center",
@@ -23,6 +23,11 @@ const styles = StyleSheet.create({
         textAlign: "center",
         fontSize: 25
     },
+    numBtnGroup: {
+        flexDirection: "row",
+        width: "100%",
+        justifyContent: "center"
+    }
 });
 
 const NumberButtons: () => React$Node = (props) => {
@@ -36,7 +41,16 @@ const NumberButtons: () => React$Node = (props) => {
     }
     return (
         <View style={styles.numButtons}>
-            {numBtnArr}
+            <View style={styles.numBtnGroup}>
+                {numBtnArr.slice(0,3)}
+            </View>
+            <View style={styles.numBtnGroup}>
+                {numBtnArr.slice(3,6)}
+            </View>
+            <View style={styles.numBtnGroup}>
+                {numBtnArr.slice(6,9)}
+            </View>
+            {numBtnArr[9]}
         </View>
     );
 };
